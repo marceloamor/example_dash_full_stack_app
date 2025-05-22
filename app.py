@@ -33,7 +33,7 @@ app.layout = create_layout()
     Output("task-list", "children"),
     [
         Input("refresh-interval", "n_intervals"),
-        Input("filter-completed", "checked")
+        Input("filter-completed", "value")
     ]
 )
 def update_task_list(n_intervals, filter_completed):
@@ -128,7 +128,7 @@ def submit_task(n_clicks, task_id, title, description, due_date, priority, categ
 
 @app.callback(
     Output("task-list", "children", allow_duplicate=True),
-    [Input({"type": "task-checkbox", "index": dash.ALL}, "checked")],
+    [Input({"type": "task-checkbox", "index": dash.ALL}, "value")],
     [State({"type": "task-checkbox", "index": dash.ALL}, "id")],
     prevent_initial_call=True
 )
@@ -233,7 +233,7 @@ def manage_categories(add_clicks, delete_clicks, category_name, category_color):
                 html.Button(
                     html.I(className="fas fa-trash"),
                     id={"type": "delete-category", "index": cat.id},
-                    className="btn btn-sm btn-outline-danger float-right",
+                    className="btn btn-sm btn-outline-danger float-end",
                     title="Delete Category"
                 )
             ],
@@ -311,11 +311,11 @@ def update_statistics(n_intervals):
             className="mb-3"
         ),
         html.Div([
-            html.P("Tasks by Priority:", className="font-weight-bold"),
+            html.P("Tasks by Priority:", className="fw-bold"),
             html.Div([
-                html.Span(f"High: {priority_counts[3]}", className="badge badge-danger mr-2"),
-                html.Span(f"Medium: {priority_counts[2]}", className="badge badge-warning mr-2"),
-                html.Span(f"Low: {priority_counts[1]}", className="badge badge-info")
+                html.Span(f"High: {priority_counts[3]}", className="badge bg-danger me-2"),
+                html.Span(f"Medium: {priority_counts[2]}", className="badge bg-warning me-2"),
+                html.Span(f"Low: {priority_counts[1]}", className="badge bg-info")
             ])
         ])
     ]

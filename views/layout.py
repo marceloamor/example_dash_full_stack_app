@@ -49,31 +49,38 @@ def create_layout():
                                     
                                     # Add category form
                                     dbc.Form(
-                                        [
-                                            dbc.FormGroup(
-                                                [
+                                        dbc.Row(
+                                            [
+                                                dbc.Col(
                                                     dbc.Input(
                                                         id="category-name-input",
                                                         type="text",
                                                         placeholder="New category name"
                                                     ),
+                                                    className="me-2"
+                                                ),
+                                                dbc.Col(
                                                     dbc.Input(
                                                         id="category-color-input",
                                                         type="color",
                                                         value="#007BFF",
-                                                        className="ml-2",
+                                                        className="ms-2",
                                                         style={"width": "50px"}
                                                     ),
+                                                    width="auto"
+                                                ),
+                                                dbc.Col(
                                                     dbc.Button(
                                                         "Add",
                                                         id="add-category-button",
                                                         color="primary",
-                                                        className="ml-2"
-                                                    )
-                                                ],
-                                                className="d-flex"
-                                            )
-                                        ],
+                                                        className="ms-2"
+                                                    ),
+                                                    width="auto"
+                                                )
+                                            ],
+                                            className="d-flex align-items-center"
+                                        ),
                                         className="mb-3"
                                     ),
                                     
@@ -94,7 +101,7 @@ def create_layout():
                                                     html.Button(
                                                         html.I(className="fas fa-trash"),
                                                         id={"type": "delete-category", "index": cat.id},
-                                                        className="btn btn-sm btn-outline-danger float-right",
+                                                        className="btn btn-sm btn-outline-danger float-end",
                                                         title="Delete Category"
                                                     )
                                                 ],

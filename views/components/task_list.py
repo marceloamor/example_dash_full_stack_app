@@ -31,12 +31,12 @@ def task_list_item(task):
         if task.is_overdue:
             due_date_text = html.Span(
                 f"Due: {due_date} (Overdue)",
-                className="text-danger ml-2"
+                className="text-danger ms-2"
             )
         else:
             due_date_text = html.Span(
                 f"Due: {due_date}",
-                className="text-muted ml-2"
+                className="text-muted ms-2"
             )
     
     # Category badge
@@ -57,8 +57,8 @@ def task_list_item(task):
             # Checkbox for task completion
             dbc.Checkbox(
                 id={"type": "task-checkbox", "index": task.id},
-                checked=task.completed,
-                className="float-left mr-2"
+                value=task.completed,
+                className="float-start me-2"
             ),
             
             # Task title and badges
@@ -67,7 +67,7 @@ def task_list_item(task):
                     html.Span(task.title, style=item_style),
                     html.Span(
                         task.priority_label,
-                        className=f"badge badge-{priority_color} ml-2"
+                        className=f"badge bg-{priority_color} ms-2"
                     ),
                     category_badge,
                     due_date_text
@@ -81,7 +81,7 @@ def task_list_item(task):
                     html.Button(
                         html.I(className="fas fa-edit"),
                         id={"type": "edit-task", "index": task.id},
-                        className="btn btn-sm btn-outline-primary mr-1",
+                        className="btn btn-sm btn-outline-primary me-1",
                         title="Edit Task"
                     ),
                     html.Button(
@@ -91,7 +91,7 @@ def task_list_item(task):
                         title="Delete Task"
                     )
                 ],
-                className="float-right"
+                className="float-end"
             ),
             
             # Task description (collapsed by default)
@@ -151,16 +151,18 @@ def task_list(tasks=None, filter_completed=False, category_id=None):
             dbc.Row(
                 [
                     dbc.Col(
-                        dbc.FormGroup(
-                            [
-                                dbc.Checkbox(
-                                    id="filter-completed",
-                                    label="Hide completed tasks",
-                                    checked=filter_completed,
-                                    className="form-check-input"
+                        dbc.Form(
+                            dbc.Row(
+                                dbc.Col(
+                                    dbc.Checkbox(
+                                        id="filter-completed",
+                                        label="Hide completed tasks",
+                                        value=filter_completed,
+                                        className="form-check-input"
+                                    ),
+                                    className="form-check"
                                 )
-                            ],
-                            className="form-check"
+                            )
                         ),
                         width=6
                     ),
@@ -168,10 +170,10 @@ def task_list(tasks=None, filter_completed=False, category_id=None):
                         html.Button(
                             "Add New Task",
                             id="add-task-button",
-                            className="btn btn-primary float-right"
+                            className="btn btn-primary float-end"
                         ),
                         width=6,
-                        className="text-right"
+                        className="text-end"
                     )
                 ],
                 className="mb-3"
