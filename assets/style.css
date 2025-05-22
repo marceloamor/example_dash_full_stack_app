@@ -1,0 +1,105 @@
+/* Custom styling for To-Do App */
+
+/* Task list styling */
+.task-item {
+    transition: background-color 0.2s ease;
+}
+
+.task-item:hover {
+    background-color: #f8f9fa;
+}
+
+.task-completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+/* Priority badges */
+.badge-priority-high {
+    background-color: #dc3545;
+}
+
+.badge-priority-medium {
+    background-color: #ffc107;
+}
+
+.badge-priority-low {
+    background-color: #17a2b8;
+}
+
+/* Form styling */
+.form-container {
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    background-color: #f8f9fa;
+    margin-bottom: 1rem;
+}
+
+/* Category styling */
+.category-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    color: white;
+    margin-right: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 0.5rem;
+    }
+    
+    .jumbotron {
+        padding: 1rem !important;
+    }
+}
+
+/* Animation for task changes */
+@keyframes highlight {
+    0% { background-color: #fff3cd; }
+    100% { background-color: transparent; }
+}
+
+.highlight {
+    animation: highlight 2s ease;
+}
+
+/* Due date styling */
+.due-date {
+    font-size: 0.875rem;
+}
+
+.due-date-overdue {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Button styling */
+.action-button {
+    margin-left: 0.25rem;
+}
+
+/* Statistics section */
+.statistics-card {
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.statistics-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Footer styling */
+footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #dee2e6;
+    text-align: center;
+    color: #6c757d;
+}
